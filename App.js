@@ -1,26 +1,11 @@
-import React, { Component } from 'react'
-import { Text, View, TouchableOpacity } from 'react-native'
-import Sound from 'react-native-sound';
+import React, { Component } from 'react';
+import Routes from './Routes.js'
 
-export default class MovieList extends Component {
-
-    sound = new Sound('motorcycle.mp3');
-
-    playSound = () => {
-        this.sound.play()
-    }
-
-    render() {
-        return (
-            <View>
-                <TouchableOpacity onPress={this.playSound}>
-                    <View>
-                        <Text>Start</Text>
-                    </View>
-                </TouchableOpacity>
-                <Text>Start</Text>
-                <Text>Start</Text><Text>Start</Text><Text>Start</Text>
-            </View>
-        )
-    }
+class App extends Component {
+   render() {
+      return (
+         <Routes />
+      )
+   }
 }
+export default App
