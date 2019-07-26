@@ -16,12 +16,16 @@ export default class MovieList extends Component {
     this.setState({
       playing: true
     }, () => this.state.allSongs[this.state.songIndex].play())
+   
   }
   stopSound = () => {
     this.state.allSongs[this.state.songIndex].setCurrentTime(0.0)
     this.setState({
       playing: false
-    }, () => this.state.allSongs[this.state.songIndex].pause())
+    }, () =>  this.state.allSongs.map((item, key) =>{
+      item.pause()
+      item.setCurrentTime(0.0)}
+    ))
   }
   render() {
         const goToAbout = () => {
@@ -79,7 +83,7 @@ export default class MovieList extends Component {
   
 </Card> */}
 
-        <Card style={style.ca} title="CARD WITH DIVIDER">
+        <Card style={style.ca} title="Cat Sounds">
           <Grid>
             <Row>
             <Col size={1}>
@@ -137,9 +141,7 @@ export default class MovieList extends Component {
               <Divider style={{ backgroundColor: 'silver' }} />
           </Grid>
         </Card>
-        <TouchableOpacity style = {{ margin: 128 }} onPress = {goToAbout}>
-         <Text>This is HOME!</Text>
-      </TouchableOpacity>
+
       </View>
       </ScrollView>
     )
